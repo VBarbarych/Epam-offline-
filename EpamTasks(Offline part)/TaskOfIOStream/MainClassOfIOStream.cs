@@ -25,7 +25,7 @@ namespace TaskOfIOStream
 
         private void ImplementOfTask1()
         {
-            FileFromDirectories fileFromDirectories = new FileFromDirectories(WriteReadOfData);
+            FileFromDirectories fileFromDirectories = new FileFromDirectories(WriteReadOfData, logger);
 
             WriteReadOfData.Write("\n========IO Stream=======\n");
             WriteReadOfData.Write("=====Implement Task1====\n");
@@ -59,7 +59,7 @@ namespace TaskOfIOStream
             DirectoryInfo dirInfo;
             try
             {
-                FIndFile file = new FIndFile(WriteReadOfData);
+                FIndFile file = new FIndFile(WriteReadOfData, logger);
                 string path = @"C:\dir1";
 
                 dirInfo = new DirectoryInfo(path);

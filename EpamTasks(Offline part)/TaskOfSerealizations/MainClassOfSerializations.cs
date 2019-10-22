@@ -15,10 +15,12 @@ namespace TaskOfSerializations
 {
     public class MainClassOfSerializations : IRunable
     {
+        private IWriteReadable WriteReadOfData;
         private ILogging logger;
 
-        public MainClassOfSerializations(ILogging logger)
+        public MainClassOfSerializations(IWriteReadable writeReadOfData, ILogging logger)
         {
+            this.WriteReadOfData = writeReadOfData;
             this.logger = logger;
         }
 
@@ -80,6 +82,8 @@ namespace TaskOfSerializations
 
         public void Run()
         {
+            WriteReadOfData.Write("========Serialization=======\n");
+            WriteReadOfData.Write("Serialized and Deserialized");
             ImplementBinarySerialization();
             ImplementXMLSerialization();
             ImplementJSONSerialization();

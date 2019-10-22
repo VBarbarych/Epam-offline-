@@ -28,7 +28,7 @@ namespace AutoRunner
             tasks.Add(new MainClassOfEnum(data, logger));
             tasks.Add(new MainClassOfIOStream(data, logger));
             //tasks.Add(new MainClassOfException(logger));
-            tasks.Add(new MainClassOfSerializations(logger));
+            tasks.Add(new MainClassOfSerializations(data, logger));
 
             foreach (var task in tasks)
             {
