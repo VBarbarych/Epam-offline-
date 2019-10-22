@@ -12,24 +12,28 @@ namespace TaskOfStruct
 {
     public class MainClassOfStruct : IRunable
     {
-        ConsoleData consoleData = new ConsoleData();
+        private IWriteReadable WriteReadOfData;
 
-        
+        public MainClassOfStruct(IWriteReadable writeReadOfData)
+        {
+            this.WriteReadOfData = writeReadOfData;
+        }
 
         private void ImplementOfTask1()
         {
+
             Person person = new Person("Tom", "Carry", 34);
 
-            consoleData.Write("==========Struct==========\n");
-            consoleData.Write("=====Implement Task1======\n");
-            consoleData.Write(person.PrintOurString(33));
+            WriteReadOfData.Write("==========Struct==========\n");
+            WriteReadOfData.Write("=====Implement Task1======\n");
+            WriteReadOfData.Write(person.PrintOurString(33));
         }
 
         private void ImplementOfTask2()
         {
-            consoleData.Write("\n=====Implement Task2======\n");
+            WriteReadOfData.Write("\n=====Implement Task2======\n");
             Rectangle rectangle = new Rectangle(3, 2, 1, 1);
-            consoleData.Write(rectangle.Perimeter());
+            WriteReadOfData.Write(rectangle.Perimeter());
         }
 
         public void Run()

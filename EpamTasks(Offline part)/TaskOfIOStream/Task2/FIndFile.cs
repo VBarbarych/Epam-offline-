@@ -5,12 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
+using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 
 namespace TaskOfIOStream.Task2
 {
     class FIndFile
     {
-        ConsoleData consoleData = new ConsoleData();
+        private IWriteReadable WriteReadOfData;
+        private ILogging logger;
+
+        public FIndFile(IWriteReadable writeReadOfData, ILogging logger)
+        {
+            this.WriteReadOfData = writeReadOfData;
+            this.logger = logger;
+        }
 
         
         public void FindFileInDirectories(DirectoryInfo root, string nameOfFile)
@@ -25,11 +34,11 @@ namespace TaskOfIOStream.Task2
             }
             catch (UnauthorizedAccessException e)
             {
-                consoleData.Write(e.Message);
+                logger.Log(LogLevel.Error, e.Message);
             }
             catch (DirectoryNotFoundException e)
             {
-                consoleData.Write(e.Message);
+                logger.Log(LogLevel.Error, e.Message);
             }
 
             if (files != null)
@@ -37,8 +46,8 @@ namespace TaskOfIOStream.Task2
                 foreach (FileInfo fi in files)
                 {
 
-                    consoleData.Write(fi.FullName);
-                    consoleData.Write(" ");
+                    WriteReadOfData.Write(fi.FullName);
+                    WriteReadOfData.Write(" ");
 
                 }
 
@@ -50,7 +59,7 @@ namespace TaskOfIOStream.Task2
                 }
             }
             else
-                consoleData.Write("Directory is empty");
+                WriteReadOfData.Write("Directory is empty");
         }
     }
 }

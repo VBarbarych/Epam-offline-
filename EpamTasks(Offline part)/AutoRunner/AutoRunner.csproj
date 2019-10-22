@@ -53,6 +53,10 @@
       <Project>{F508B965-37BC-40DF-9B1A-092E6606EAB3}</Project>
       <Name>LibraryOfInterfacesAndClasses</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{57b13d1d-fe03-4bdf-bd0e-b441e1ff4cfb}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskOfEnum\TaskOfEnum.csproj">
       <Project>{3599dd5d-ad8e-4c87-8b50-415d198f7d93}</Project>
       <Name>TaskOfEnum</Name>
@@ -64,6 +68,10 @@
     <ProjectReference Include="..\TaskOfIOStream\TaskOfIOStream.csproj">
       <Project>{9441b023-7386-4343-955f-c5c8fc8f4277}</Project>
       <Name>TaskOfIOStream</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskOfSerealizations\TaskOfSerializations.csproj">
+      <Project>{be9cbb57-9230-4151-8cef-1d7be4b64de6}</Project>
+      <Name>TaskOfSerializations</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskOfStruct\TaskOfStruct.csproj">
       <Project>{902de6fd-dfe8-43f9-a18a-1eaea62ef274}</Project>

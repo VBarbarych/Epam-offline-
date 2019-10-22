@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalClasses\WriteReadData.cs" />
     <Compile Include="AdditionalClasses\ConsoleData.cs" />
     <Compile Include="AdditionalInterfaces\IRunable.cs" />
     <Compile Include="AdditionalInterfaces\IWriteReadable.cs" />

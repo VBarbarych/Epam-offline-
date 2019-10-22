@@ -5,19 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
+using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 
 namespace TaskOfIOStream.Task1
 {
-    public static class FileFromDirectories
+    public class FileFromDirectories
     {
-        
+        private IWriteReadable WriteReadOfData;
+        private ILogging logger;
 
-        public static void GetFilesFromDirectory(DirectoryInfo root)
+        public FileFromDirectories(IWriteReadable writeReadOfData, ILogging logger)
+        {
+            this.WriteReadOfData = writeReadOfData;
+            this.logger = logger;
+        }
+
+
+        public void GetFilesFromDirectory(DirectoryInfo root)
         {
             FileInfo[] files = null;
             DirectoryInfo[] subDirs = null;
 
-            ConsoleData consoleData = new ConsoleData();
+            
 
             try
             {
@@ -25,11 +35,11 @@ namespace TaskOfIOStream.Task1
             }
             catch (UnauthorizedAccessException e)
             {
-                consoleData.Write(e.Message);
+                logger.Log(LogLevel.Error, e.Message);
             }
             catch (DirectoryNotFoundException e)
             {
-                consoleData.Write(e.Message);
+                logger.Log(LogLevel.Error, e.Message);
             }
 
             if (files != null)
@@ -37,8 +47,8 @@ namespace TaskOfIOStream.Task1
                 foreach (FileInfo fi in files)
                 {
 
-                    consoleData.Write(fi.FullName);
-                    consoleData.Write(" ");
+                    WriteReadOfData.Write(fi.FullName);
+                    WriteReadOfData.Write(" ");
 
                 }
 
@@ -51,7 +61,7 @@ namespace TaskOfIOStream.Task1
 
             }
             else
-                consoleData.Write("Directory is empty");
+                WriteReadOfData.Write("Directory is empty");
         }
     }
 }

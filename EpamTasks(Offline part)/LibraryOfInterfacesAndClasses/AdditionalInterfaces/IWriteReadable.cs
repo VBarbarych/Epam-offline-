@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryOfInterfacesAndClasses.AdditionalInterfaces
 {
-    interface IWriteReadable
+    public interface IWriteReadable
     {
         object Read();
         void Write(object data);

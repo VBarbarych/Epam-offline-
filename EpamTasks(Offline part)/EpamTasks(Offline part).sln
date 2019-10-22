@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfIOStream", "TaskOfIOS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfException", "TaskOfException\TaskOfException.csproj", "{59A34A07-8F4B-41D8-B724-035D5EE38857}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfSerializations", "TaskOfSerealizations\TaskOfSerializations.csproj", "{BE9CBB57-9230-4151-8CEF-1D7BE4B64DE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{59A34A07-8F4B-41D8-B724-035D5EE38857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A34A07-8F4B-41D8-B724-035D5EE38857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A34A07-8F4B-41D8-B724-035D5EE38857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9CBB57-9230-4151-8CEF-1D7BE4B64DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9CBB57-9230-4151-8CEF-1D7BE4B64DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9CBB57-9230-4151-8CEF-1D7BE4B64DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9CBB57-9230-4151-8CEF-1D7BE4B64DE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

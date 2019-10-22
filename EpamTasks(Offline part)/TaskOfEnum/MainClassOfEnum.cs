@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 using TaskOfEnum.Task1;
 using TaskOfEnum.Task2;
 using TaskOfEnum.Task3;
@@ -13,32 +14,39 @@ namespace TaskOfEnum
 {
     public class MainClassOfEnum : IRunable
     {
-        ConsoleData consoleData = new ConsoleData();
+        private IWriteReadable WriteReadOfData;
+        ILogging logger;
+
+        public MainClassOfEnum(IWriteReadable writeReadOfData, ILogging logger)
+        {
+            this.WriteReadOfData = writeReadOfData;
+            this.logger = logger;
+        }
 
         private void ImplementOfTask1()
         {
-            consoleData.Write("\n==========Enum==========\n");
-            consoleData.Write("====Implement Task1=====\n");
+            WriteReadOfData.Write("\n==========Enum==========\n");
+            WriteReadOfData.Write("====Implement Task1=====\n");
 
             int month = 0;
             try
             {
-                consoleData.Write("Input your month(number): ");
-                month = Convert.ToInt32(consoleData.Read());
+                WriteReadOfData.Write("Input your month(number): ");
+                month = Convert.ToInt32(WriteReadOfData.Read());
                 if (month < 0 || month > 12)
                     throw new Exception("Error");
             }
             catch (Exception e)
             {
-                consoleData.Write(e.Message);
+                logger.Log(LogLevel.Error, e.Message);
             }
 
-            consoleData.Write(Enum.GetName(typeof(Month), month));
+            WriteReadOfData.Write(Enum.GetName(typeof(Month), month));
         }
 
         private void ImplementOfTask2()
         {
-            consoleData.Write("\n====Implement Task2=====\n");
+            WriteReadOfData.Write("\n====Implement Task2=====\n");
 
             var color = Color.Green;
             color.EnumColorSort();
@@ -46,9 +54,9 @@ namespace TaskOfEnum
 
         private void ImplementOfTask3()
         {
-            consoleData.Write("\n====Implement Task3=====\n");
+            WriteReadOfData.Write("\n====Implement Task3=====\n");
 
-            consoleData.Write($"\n{(long)LongRange.Max} - max value \n{(long)LongRange.Min} - min value");
+            WriteReadOfData.Write($"\n{(long)LongRange.Max} - max value \n{(long)LongRange.Min} - min value");
         }
 
         public void Run()

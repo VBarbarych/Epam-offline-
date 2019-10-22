@@ -8,19 +8,27 @@ using TaskOfStruct;
 using TaskOfEnum;
 using TaskOfIOStream;
 using TaskOfException;
+using TaskOfSerializations;
+using Logger;
+using LibraryOfInterfacesAndClasses.AdditionalClasses;
 
 namespace AutoRunner
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             List<IRunable> tasks = new List<IRunable>();
 
-            tasks.Add(new MainClassOfStruct());
-            tasks.Add(new MainClassOfEnum());
-            tasks.Add(new MainClassOfIOStream());
-            //tasks.Add(new MainClassOfException());
+            IWriteReadable data = new ConsoleData();
+            ILogging logger = new FileLogger();
+
+            tasks.Add(new MainClassOfStruct(data));
+            tasks.Add(new MainClassOfEnum(data, logger));
+            tasks.Add(new MainClassOfIOStream(data, logger));
+            //tasks.Add(new MainClassOfException(logger));
+            tasks.Add(new MainClassOfSerializations(logger));
 
             foreach (var task in tasks)
             {

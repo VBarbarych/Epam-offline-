@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 using TaskOfException.Task1;
 using TaskOfException.Task2;
 
@@ -12,7 +13,20 @@ namespace TaskOfException
 {
     public class MainClassOfException : IRunable
     {
-        ConsoleData consoleData = new ConsoleData();
+
+        private IWriteReadable WriteReadOfData;
+        public MainClassOfException(IWriteReadable writeReadOfData)
+        {
+            this.WriteReadOfData = writeReadOfData;
+        }
+
+        ILogging logger;
+
+        public MainClassOfException(ILogging logger)
+        {
+            this.logger = logger;
+        }
+
 
         private void ImplementOfTask1()
         {
@@ -27,18 +41,18 @@ namespace TaskOfException
         private void ImplementOfTask4()
         {
             //StackOverflowException
-            try
-            {
-                StackOverflowExceptionTask.Factorial(1);
-            }
-            catch (StackOverflowException ex)
-            {
-                consoleData.Write(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                consoleData.Write(ex.Message);
-            }
+            //try
+            //{
+            //    StackOverflowExceptionTask.Factorial(1);
+            //}
+            //catch (StackOverflowException ex)
+            //{
+            //    log.Write(ex.Message);
+            //}
+            //catch (Exception ex)
+            //{
+            //    log.Write(ex.Message);
+            //}
 
             //IndexOutOfRangeException
             try
@@ -47,11 +61,11 @@ namespace TaskOfException
             }
             catch (IndexOutOfRangeException ex)
             {
-                consoleData.Write(ex.Message);
+                logger.Log(LogLevel.Error, ex.Message);
             }
             catch (Exception ex)
             {
-                consoleData.Write(ex.Message);
+                logger.Log(LogLevel.Error, ex.Message);
             }
         }
 
@@ -66,7 +80,7 @@ namespace TaskOfException
             }
             catch(ArgumentException ex)
             {
-                consoleData.Write(ex.Message);
+                logger.Log(LogLevel.Error, ex.Message);
             }
         }
 
@@ -74,7 +88,7 @@ namespace TaskOfException
         {
             //ImplementOfTask1();
             //ImplementOfTask2();
-            //ImplementOfTask4();
+            ImplementOfTask4();
             //ImplementOfTask5();
         }
     }

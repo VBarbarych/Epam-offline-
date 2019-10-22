@@ -8,19 +8,29 @@ using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
 using System.IO;
 using TaskOfIOStream.Task1;
 using TaskOfIOStream.Task2;
+using Logger;
 
 namespace TaskOfIOStream
 {
     public class MainClassOfIOStream : IRunable
     {
-        ConsoleData consoleData = new ConsoleData();
+        private IWriteReadable WriteReadOfData;
+        private ILogging logger;
+
+        public MainClassOfIOStream(IWriteReadable writeReadOfData, ILogging logger)
+        {
+            this.WriteReadOfData = writeReadOfData;
+            this.logger = logger;
+        }
 
         private void ImplementOfTask1()
         {
-            consoleData.Write("\n========IO Stream=======\n");
-            consoleData.Write("=====Implement Task1====\n");
-            consoleData.Write("Show all file from directory, Input Yes or No");
-            string conditional = (string)consoleData.Read();
+            FileFromDirectories fileFromDirectories = new FileFromDirectories(WriteReadOfData);
+
+            WriteReadOfData.Write("\n========IO Stream=======\n");
+            WriteReadOfData.Write("=====Implement Task1====\n");
+            WriteReadOfData.Write("Show all file from directory, Input Yes or No");
+            string conditional = (string)WriteReadOfData.Read();
 
             if (conditional == "Yes")
             {
@@ -31,37 +41,37 @@ namespace TaskOfIOStream
 
                     dirInfo = new DirectoryInfo(path);
 
-                    consoleData.Write("All file in your directory and subdirectories: ");
+                    WriteReadOfData.Write("All file in your directory and subdirectories: \n");
 
-                    FileFromDirectories.GetFilesFromDirectory(dirInfo);
+                    fileFromDirectories.GetFilesFromDirectory(dirInfo);
                 }
                 catch (Exception ex)
                 {
-                    consoleData.Write(ex.Message);
+                    logger.Log(LogLevel.Error, ex.Message);
                 }
             }
         }
 
         private void ImplementOfTask2()
         {
-            consoleData.Write("\n=====Implement Task2====\n");
+            WriteReadOfData.Write("\n=====Implement Task2====\n");
 
             DirectoryInfo dirInfo;
             try
             {
-                FIndFile file = new FIndFile();
+                FIndFile file = new FIndFile(WriteReadOfData);
                 string path = @"C:\dir1";
 
                 dirInfo = new DirectoryInfo(path);
 
-                consoleData.Write("Your file: ");
-                string nameOfFile = (string)consoleData.Read();
+                WriteReadOfData.Write("Your file: ");
+                string nameOfFile = (string)WriteReadOfData.Read();
 
                 file.FindFileInDirectories(dirInfo, nameOfFile);
             }
             catch (Exception ex)
             {
-                consoleData.Write(ex.Message);
+                logger.Log(LogLevel.Error, ex.Message);
             }
         }
 
