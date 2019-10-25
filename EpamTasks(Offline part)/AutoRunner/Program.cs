@@ -10,6 +10,7 @@ using TaskOfIOStream;
 using TaskOfException;
 using TaskOfSerializations;
 using Logger;
+using TaskOfReflection;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
 
 namespace AutoRunner
@@ -24,11 +25,12 @@ namespace AutoRunner
             IWriteReadable data = new ConsoleData();
             ILogging logger = new FileLogger();
 
-            tasks.Add(new MainClassOfStruct(data));
-            tasks.Add(new MainClassOfEnum(data, logger));
-            tasks.Add(new MainClassOfIOStream(data, logger));
+            //tasks.Add(new MainClassOfStruct(data));
+            //tasks.Add(new MainClassOfEnum(data, logger));
+            //tasks.Add(new MainClassOfIOStream(data, logger));
             //tasks.Add(new MainClassOfException(logger));
-            tasks.Add(new MainClassOfSerializations(data, logger));
+            //tasks.Add(new MainClassOfSerializations(data, logger));
+            tasks.Add(new MainClassOfReflection(data));
 
             foreach (var task in tasks)
             {
