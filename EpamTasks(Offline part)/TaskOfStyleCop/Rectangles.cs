@@ -4,10 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logger
+namespace TaskOfStyleCop
 {
-    public interface ILogging
+    public class Rectangles
     {
-        void Log(LogLevel logLevel, string Message);
+        
+
+
+
+
+
+
     }
 }

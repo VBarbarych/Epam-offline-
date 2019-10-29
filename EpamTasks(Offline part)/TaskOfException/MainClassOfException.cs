@@ -15,17 +15,16 @@ namespace TaskOfException
     {
 
         private IWriteReadable WriteReadOfData;
-        public MainClassOfException(IWriteReadable writeReadOfData)
-        {
-            this.WriteReadOfData = writeReadOfData;
-        }
-
         ILogging logger;
 
-        public MainClassOfException(ILogging logger)
+        public MainClassOfException(IWriteReadable writeReadOfData, ILogging logger)
         {
+            this.WriteReadOfData = writeReadOfData;
             this.logger = logger;
         }
+
+
+        
 
 
         private void ImplementOfTask1()

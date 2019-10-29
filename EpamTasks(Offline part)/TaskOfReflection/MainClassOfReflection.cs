@@ -19,6 +19,7 @@ namespace TaskOfReflection
 
         public void ImplementTask1()
         {
+            WriteReadOfData.Write("\n====TaskOfReflection=====\n");
             Type type = Type.GetType("TaskOfReflection.Car");
 
             foreach(MemberInfo mi in type.GetMembers())
@@ -39,11 +40,11 @@ namespace TaskOfReflection
 
         public void ImplementTask2()
         {
-            WriteReadOfData.Write("========");
+            WriteReadOfData.Write("==============");
             Assembly asm = Assembly.LoadFrom("TaskOfReflection.dll");
 
             WriteReadOfData.Write(asm.FullName);
-            // получаем все типы из сборки MyApp.dll
+            // получаєм всі типи із збірки TaskOfReflection.dll
             Type[] types = asm.GetTypes();
             foreach (Type t in types)
             {

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94F98EA5-BACE-40D2-A986-86A64216DFA3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>AutoRunner</RootNamespace>
-    <AssemblyName>AutoRunner</AssemblyName>
+    <ProjectGuid>{EBB7B5C1-3B94-429E-8680-76C012748E12}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdditionalTaskWithExcel</RootNamespace>
+    <AssemblyName>AdditionalTaskWithExcel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,7 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,52 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ExcelData.cs" />
+    <Compile Include="MainClassOfExcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdditionalTaskWithExcel\TaskWithExcel.csproj">
-      <Project>{ebb7b5c1-3b94-429e-8680-76c012748e12}</Project>
-      <Name>TaskWithExcel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LibraryOfInterfacesAndClasses\LibraryOfInterfacesAndClasses.csproj">
-      <Project>{F508B965-37BC-40DF-9B1A-092E6606EAB3}</Project>
+      <Project>{f508b965-37bc-40df-9b1a-092e6606eab3}</Project>
       <Name>LibraryOfInterfacesAndClasses</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{57b13d1d-fe03-4bdf-bd0e-b441e1ff4cfb}</Project>
       <Name>Logger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfEnum\TaskOfEnum.csproj">
-      <Project>{3599dd5d-ad8e-4c87-8b50-415d198f7d93}</Project>
-      <Name>TaskOfEnum</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfException\TaskOfException.csproj">
-      <Project>{59a34a07-8f4b-41d8-b724-035d5ee38857}</Project>
-      <Name>TaskOfException</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfIOStream\TaskOfIOStream.csproj">
-      <Project>{9441b023-7386-4343-955f-c5c8fc8f4277}</Project>
-      <Name>TaskOfIOStream</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfReflection\TaskOfReflection.csproj">
-      <Project>{42f1611c-5dec-4913-afad-4780599e9e2e}</Project>
-      <Name>TaskOfReflection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfSerealizations\TaskOfSerializations.csproj">
-      <Project>{be9cbb57-9230-4151-8cef-1d7be4b64de6}</Project>
-      <Name>TaskOfSerializations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfStruct\TaskOfStruct.csproj">
-      <Project>{902de6fd-dfe8-43f9-a18a-1eaea62ef274}</Project>
-      <Name>TaskOfStruct</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskOfStyleCop\TaskOfStyleCop.csproj">
-      <Project>{13bd849c-4849-40c4-a6c3-5e374c04a7a3}</Project>
-      <Name>TaskOfStyleCop</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
