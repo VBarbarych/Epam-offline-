@@ -29,26 +29,23 @@ namespace TaskOfIOStream
 
             WriteReadOfData.Write("\n========IO Stream=======\n");
             WriteReadOfData.Write("=====Implement Task1====\n");
-            WriteReadOfData.Write("Show all file from directory, Input Yes or No");
-            string conditional = (string)WriteReadOfData.Read();
-
-            if (conditional == "Yes")
+            WriteReadOfData.Write("Show all file from directory: ");
+            
+            
+            DirectoryInfo dirInfo;
+            try
             {
-                DirectoryInfo dirInfo;
-                try
-                {
-                    string path = @"C:\Users\Comp\Documents\Visual Studio 2017\Projects\Epam1";
+                string path = @"C:\Users\Comp\Documents\Epam-offline-\EpamTasks(Offline part)\TaskOfIOStream";
 
-                    dirInfo = new DirectoryInfo(path);
+                dirInfo = new DirectoryInfo(path);
 
-                    WriteReadOfData.Write("All file in your directory and subdirectories: \n");
+                WriteReadOfData.Write("All file in your directory and subdirectories: \n");
 
-                    fileFromDirectories.GetFilesFromDirectory(dirInfo);
-                }
-                catch (Exception ex)
-                {
-                    logger.Log(LogLevel.Error, ex.Message);
-                }
+                fileFromDirectories.GetFilesFromDirectory(dirInfo);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, ex.Message);
             }
         }
 
@@ -60,12 +57,12 @@ namespace TaskOfIOStream
             try
             {
                 FIndFile file = new FIndFile(WriteReadOfData, logger);
-                string path = @"C:\dir1";
+                string path = @"C:\Users\Comp\Documents\Epam-offline-\EpamTasks(Offline part)\TaskOfIOStream";
 
                 dirInfo = new DirectoryInfo(path);
 
-                WriteReadOfData.Write("Your file: ");
-                string nameOfFile = (string)WriteReadOfData.Read();
+                WriteReadOfData.Write("Find file with name[On example: 'text']: ");
+                string nameOfFile = "text";
 
                 file.FindFileInDirectories(dirInfo, nameOfFile);
             }

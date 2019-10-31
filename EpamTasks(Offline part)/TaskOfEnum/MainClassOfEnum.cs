@@ -28,28 +28,35 @@ namespace TaskOfEnum
             WriteReadOfData.Write("\n==========Enum==========\n");
             WriteReadOfData.Write("====Implement Task1=====\n");
 
-            int month = 0;
-            try
-            {
-                WriteReadOfData.Write("Input your month(number): ");
-                month = Convert.ToInt32(WriteReadOfData.Read());
-                if (month < 0 || month > 12)
-                    throw new Exception("Error");
-            }
-            catch (Exception e)
-            {
-                logger.Log(LogLevel.Error, e.Message);
-            }
+            //int month = 0;
+            //try
+            //{
+            //    WriteReadOfData.Write("Input your month(number): ");
+            //    month = Convert.ToInt32(WriteReadOfData.Read());
+            //    if (month < 0 || month > 12)
+            //        throw new Exception("Error");
+            //}
+            //catch (Exception e)
+            //{
+            //    logger.Log(LogLevel.Error, e.Message);
+            //}
 
-            WriteReadOfData.Write(Enum.GetName(typeof(Month), month));
+            WriteReadOfData.Write(Enum.GetName(typeof(Month), 6));
         }
 
         private void ImplementOfTask2()
         {
             WriteReadOfData.Write("\n====Implement Task2=====\n");
 
+            List<int> ColorList = new List<int>();
+
             var color = Color.Green;
-            color.EnumColorSort();
+            ColorList = color.EnumColorSort();
+
+            foreach(int i in ColorList)
+            {
+                WriteReadOfData.Write($"{Enum.GetName(typeof(Color), i)} = {i}");
+            }
         }
 
         private void ImplementOfTask3()

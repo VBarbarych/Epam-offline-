@@ -31,11 +31,6 @@ namespace TaskWithExcel
 
                 row++;
             }
-
-            //int iLastRow = currentSheet.Cells[currentSheet.Rows.Count, column].End[XlDirection.xlUp].Row;  //последняя заполненная строка в столбце А
-            //tempList.Add(currentSheet.Range[column + iLastRow].Value.ToString());
-
-
             excelApp.Quit();
 
             return tempList;

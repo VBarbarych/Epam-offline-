@@ -25,9 +25,10 @@ namespace TaskWithExcel
 
         public void ImplementTaskWithExcel()
         {
+            WriteReadOfData.Write("\n\n=============Additional Task with Excel File==============");
             try
             {
-                ExcelData xlsx = new ExcelData();
+                ExcelData excelData = new ExcelData();
 
                 string firstColumn = ConfigurationManager.AppSettings.Get("FirstColumn");
                 string secondColumn = ConfigurationManager.AppSettings.Get("SecondColumn");
@@ -36,9 +37,9 @@ namespace TaskWithExcel
                 HashSet<string> uniqueElementsFromFirstColumn = new HashSet<string>();
                 HashSet<string> uniqueElementsFromSecondColumn = new HashSet<string>();
 
-                uniqueElementsFromFirstColumn = xlsx.Read(path, firstColumn);
-                uniqueElementsFromSecondColumn = xlsx.Read(path, secondColumn);
-                xlsx.Output(WriteReadOfData, uniqueElementsFromFirstColumn, uniqueElementsFromSecondColumn);
+                uniqueElementsFromFirstColumn = excelData.Read(path, firstColumn);
+                uniqueElementsFromSecondColumn = excelData.Read(path, secondColumn);
+                excelData.Output(WriteReadOfData, uniqueElementsFromFirstColumn, uniqueElementsFromSecondColumn);
             }
             catch(Exception ex)
             {
@@ -48,16 +49,7 @@ namespace TaskWithExcel
 
         public void Run()
         {
-            Stopwatch sw_total = new Stopwatch();
-            sw_total.Start();
-
             ImplementTaskWithExcel();
-
-            sw_total.Stop();
-            WriteReadOfData.Write("Execute time: " + sw_total.ElapsedMilliseconds + " ms");
-
         }
-
-
     }
 }

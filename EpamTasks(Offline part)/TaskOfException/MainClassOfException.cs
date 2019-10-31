@@ -34,7 +34,14 @@ namespace TaskOfException
 
         private void ImplementOfTask2()
         {
-            IndexOutOfRangeExceptionTask.IndexOutOfRangeMethod();
+            try
+            {
+                IndexOutOfRangeExceptionTask.IndexOutOfRangeMethod();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                logger.Log(LogLevel.Error, ex.Message);
+            }
         }
 
         private void ImplementOfTask4()
@@ -73,6 +80,9 @@ namespace TaskOfException
         {
             ArgumentExceptionTask exception = new ArgumentExceptionTask();
 
+
+            //WriteReadOfData.Write("======Task Of Exception========");
+            //WriteReadOfData.Write("Input a number: ");
             try
             {
                 exception.DoSomeMath();
@@ -86,7 +96,7 @@ namespace TaskOfException
         public void Run()
         {
             //ImplementOfTask1();
-            //ImplementOfTask2();
+            ImplementOfTask2();
             ImplementOfTask4();
             //ImplementOfTask5();
         }

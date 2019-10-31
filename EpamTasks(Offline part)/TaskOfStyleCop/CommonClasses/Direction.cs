@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace TaskOfStyleCop
 {
-    public class Rectangles
+    public enum Direction
     {
-        
-
-
-
-
-
-
+        Left = 1,
+        Right,
+        Up,
+        Down,
     }
 }

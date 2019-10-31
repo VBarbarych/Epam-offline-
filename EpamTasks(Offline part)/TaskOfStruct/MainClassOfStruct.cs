@@ -7,16 +7,19 @@ using TaskOfStruct.Task1;
 using TaskOfStruct.Task2;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 
 namespace TaskOfStruct
 {
     public class MainClassOfStruct : IRunable
     {
         private IWriteReadable WriteReadOfData;
+        private ILogging logger;
 
-        public MainClassOfStruct(IWriteReadable writeReadOfData)
+        public MainClassOfStruct(IWriteReadable writeReadOfData, ILogging logger)
         {
             this.WriteReadOfData = writeReadOfData;
+            this.logger = logger;
         }
 
         private void ImplementOfTask1()
@@ -24,7 +27,7 @@ namespace TaskOfStruct
 
             Person person = new Person("Tom", "Carry", 34);
 
-            WriteReadOfData.Write("==========Struct==========\n");
+            WriteReadOfData.Write("\n\n==========Struct==========\n");
             WriteReadOfData.Write("=====Implement Task1======\n");
             WriteReadOfData.Write(person.PrintOurString(33));
         }

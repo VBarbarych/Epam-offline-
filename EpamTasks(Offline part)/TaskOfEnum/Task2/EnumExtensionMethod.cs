@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace TaskOfEnum.Task2
 {
     public static class EnumExtensionMethod
     {
-        public static void EnumColorSort(this Color color)
+        
+
+        public static List<int> EnumColorSort(this Color color)
         {
             List<int> ColorList = new List<int>();
 
@@ -19,10 +22,7 @@ namespace TaskOfEnum.Task2
 
             ColorList.Sort();
 
-            foreach (int i in ColorList)
-            {
-                Console.WriteLine($"{Enum.GetName(typeof(Color), i)} = {i}");
-            }
+            return ColorList;
         }
     }
 }

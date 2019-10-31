@@ -26,7 +26,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfReflection", "TaskOfR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfStyleCop", "TaskOfStyleCop\TaskOfStyleCop.csproj", "{13BD849C-4849-40C4-A6C3-5E374C04A7A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithExcel", "AdditionalTaskWithExcel\TaskWithExcel.csproj", "{EBB7B5C1-3B94-429E-8680-76C012748E12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithExcel(Variant1)", "AdditionalTaskWithExcel\TaskWithExcel(Variant1).csproj", "{EBB7B5C1-3B94-429E-8680-76C012748E12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithDirectories(Variant2)", "TaskWithDirectories\TaskWithDirectories(Variant2).csproj", "{C30361B7-08EE-4E27-A812-D6D99689BE3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,10 @@ Global
 		{EBB7B5C1-3B94-429E-8680-76C012748E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBB7B5C1-3B94-429E-8680-76C012748E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBB7B5C1-3B94-429E-8680-76C012748E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
