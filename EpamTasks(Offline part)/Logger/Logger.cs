@@ -17,7 +17,7 @@ namespace Logger
         {
             try
             {
-                path = ConfigurationManager.AppSettings.Get("DestFolder"); //path from App.config
+                path = ConfigurationManager.AppSettings.Get("LoggerFile"); //path from App.config
                 string str = string.Format("[{0}]: ({1}): {2}",
                                             logLevel.ToString(),
                                             DateTime.Now,

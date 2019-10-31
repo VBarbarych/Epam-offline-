@@ -9,6 +9,7 @@ using System.IO;
 using TaskOfIOStream.Task1;
 using TaskOfIOStream.Task2;
 using Logger;
+using System.Configuration;
 
 namespace TaskOfIOStream
 {
@@ -35,7 +36,7 @@ namespace TaskOfIOStream
             DirectoryInfo dirInfo;
             try
             {
-                string path = @"C:\Users\Comp\Documents\Epam-offline-\EpamTasks(Offline part)\TaskOfIOStream";
+                string path = ConfigurationManager.AppSettings.Get("TaskOfIOStream1"); //path from App.config
 
                 dirInfo = new DirectoryInfo(path);
 
@@ -57,7 +58,7 @@ namespace TaskOfIOStream
             try
             {
                 FIndFile file = new FIndFile(WriteReadOfData, logger);
-                string path = @"C:\Users\Comp\Documents\Epam-offline-\EpamTasks(Offline part)\TaskOfIOStream";
+                string path = ConfigurationManager.AppSettings.Get("TaskOfIOStream2"); //path from App.config;
 
                 dirInfo = new DirectoryInfo(path);
 
