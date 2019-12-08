@@ -1,35 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.IO;
-using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
 using Logger;
 
 namespace TaskOfIOStream.Task2
 {
-    class FIndFile
+    public class SearchFile
     {
-        private IWriteReadable WriteReadOfData;
+        private IWriteReadable writeReadOfData;
         private ILogging logger;
 
-        public FIndFile(IWriteReadable writeReadOfData, ILogging logger)
+        public SearchFile(IWriteReadable writeReadOfData, ILogging logger)
         {
-            this.WriteReadOfData = writeReadOfData;
+            this.writeReadOfData = writeReadOfData;
             this.logger = logger;
         }
 
-        
-        public void FindFileInDirectories(DirectoryInfo root, string nameOfFile)
+        public void GetFileFromDirectories(DirectoryInfo root, string nameOfFile)
         {
             FileInfo[] files = null;
             DirectoryInfo[] subDirs = null;
-           
             try
             {
-
                 files = root.GetFiles($"{nameOfFile}*.txt");
             }
             catch (UnauthorizedAccessException e)
@@ -45,21 +38,41 @@ namespace TaskOfIOStream.Task2
             {
                 foreach (FileInfo fi in files)
                 {
-
-                    WriteReadOfData.Write(fi.FullName);
-                    WriteReadOfData.Write(" ");
-
+                    writeReadOfData.Write(fi.FullName);
+                    writeReadOfData.Write(" ");
                 }
 
                 subDirs = root.GetDirectories();
 
                 foreach (DirectoryInfo dirInfo in subDirs)
                 {
-                    FindFileInDirectories(dirInfo, nameOfFile);
+                    GetFileFromDirectories(dirInfo, nameOfFile);
                 }
             }
             else
-                WriteReadOfData.Write("Directory is empty");
+            {
+                writeReadOfData.Write("Directory is empty");
+            }
+        }
+
+        public void SearchFileInDirectories()
+        {
+            DirectoryInfo dirInfo;
+            try
+            {
+                string pathForDirectory = ConfigurationManager.AppSettings.Get("TaskOfIOStream2"); // path from App.config;
+
+                dirInfo = new DirectoryInfo(pathForDirectory);
+
+                writeReadOfData.Write("Find file with name[On example: 'text']: ");
+                string nameOfFile = "text";
+
+                GetFileFromDirectories(dirInfo, nameOfFile);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, ex.Message);
+            }
         }
     }
 }

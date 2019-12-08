@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace LibraryOfInterfacesAndClasses.AdditionalClasses
 {
-    public class ConsoleData : IWriteReadable
+    public class OneDriveData : IWriteReadable
     {
         public object Read()
         {
-            object InputData = Console.ReadLine();
-            return InputData;
+            throw new NotImplementedException();
         }
-        
-        public void Write(object OutputData)
+
+
+
+        public void Write(object data)
         {
-            Console.WriteLine(OutputData);
+            
         }
     }
 }

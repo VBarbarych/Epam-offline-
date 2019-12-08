@@ -1,4 +1,7 @@
-﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
 using TaskOfStruct;
 using TaskOfEnum;
 using TaskOfIOStream;
@@ -10,12 +13,6 @@ using TaskOfReflection;
 using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using TaskOfStyleCop;
 using TaskWithDirectories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace AutoRunner
 {
@@ -31,8 +28,6 @@ namespace AutoRunner
             IWriteReadable output = new ConsoleData();
             ILogging logger = new FileLogger();
 
-            tasks.Add(new MainClassOfExcel(output, logger));
-            tasks.Add(new MainClassOfDirectories(output, logger));
             tasks.Add(new MainClassOfStruct(output, logger));
             tasks.Add(new MainClassOfEnum(output, logger));
             tasks.Add(new MainClassOfIOStream(output, logger));
@@ -40,8 +35,8 @@ namespace AutoRunner
             tasks.Add(new MainClassOfSerializations(output, logger));
             tasks.Add(new MainClassOfReflection(output));
             tasks.Add(new MainClassOfStyleCop(output));
-            
-
+            tasks.Add(new MainClassOfExcel(output, logger));
+            tasks.Add(new MainClassOfDirectories(output, logger));
 
             foreach (var task in tasks)
             {

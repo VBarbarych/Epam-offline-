@@ -1,24 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 
 namespace TaskOfEnum.Task1
 {
-    enum Month
+    public class Month : IMonthReader, IMonthWriter
     {
-        January = 0,
-        February = 1,
-        March = 2,
-        April = 3,
-        May = 4,
-        June = 5,
-        July = 6,
-        August = 7,
-        September = 8,
-        October = 9,
-        November = 10,
-        December = 11,
-    };
+        private int month;
+        private IWriteReadable writeReadOfData;
+        private ILogging logger;
+
+        public Month(IWriteReadable writeReadOfData, ILogging logger)
+        {
+            this.writeReadOfData = writeReadOfData;
+            this.logger = logger;
+        }
+
+        public void InputMonth()
+        {
+            month = 0;
+            try
+            {
+                writeReadOfData.Write("Input your month(number): ");
+                month = Convert.ToInt32(writeReadOfData.Read());
+                if (month < 0 || month > 12)
+                {
+                    throw new Exception("Error");
+                }
+            }
+            catch (Exception e)
+            {
+                logger.Log(LogLevel.Error, e.Message);
+            }
+        }
+
+        public void OutputMonth()
+        {
+            writeReadOfData.Write(Enum.GetName(typeof(MonthOfYear), month));
+        }
+    }
 }

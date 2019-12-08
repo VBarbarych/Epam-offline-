@@ -1,37 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-using TaskOfSerealizations.Task1;
-using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
-using System.Runtime.Serialization.Formatters.Binary;
 using Logger;
+using TaskOfSerealizations.Task1;
 
 namespace TaskOfSerializations
 {
     public class MainClassOfSerializations : IRunable
     {
-        private IWriteReadable WriteReadOfData;
+        private IWriteReadable writeReadOfData;
         private ILogging logger;
+
+        [XmlArray("CarList")]
+        [XmlArrayItem(typeof(Car), ElementName = "prop")]
+        private List<Car> listOfCar = new List<Car>
+        {
+            new Car(1, 43244, 87, 783642),
+            new Car(2, 54354, 34, 136474),
+            new Car(3, 12348, 67, 534523),
+        };
+
+        private List<Car> deserializedListByBinary = new List<Car>();
+        private List<Car> deserializedListByXML = new List<Car>();
+        private List<Car> deserializedListByJSON = new List<Car>();
 
         public MainClassOfSerializations(IWriteReadable writeReadOfData, ILogging logger)
         {
-            this.WriteReadOfData = writeReadOfData;
+            this.writeReadOfData = writeReadOfData;
             this.logger = logger;
         }
 
-        [XmlArray("CarList"), XmlArrayItem(typeof(Car), ElementName = "prop")]
-        public List<Car> listOfCar = new List<Car> {new Car(1, 43244, 87, 783642),
-                                              new Car(2, 54354, 34, 136474),
-                                              new Car(3, 12348, 67, 534523)};
+        public void Run()
+        {
+            writeReadOfData.Write("========Serialization=======\n");
+            writeReadOfData.Write("Serialized and Deserialized. Check related files");
 
-        public List<Car> deserializedListByBinary = new List<Car>();
-        public List<Car> deserializedListByXML = new List<Car>();
-        public List<Car> deserializedListByJSON = new List<Car>();
+            ImplementBinarySerialization();
+            ImplementXMLSerialization();
+            ImplementJSONSerialization();
+        }
 
         public void ImplementBinarySerialization()
         {
@@ -42,19 +50,18 @@ namespace TaskOfSerializations
                 data.Serialization(listOfCar);
                 deserializedListByBinary = data.Deserialization();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.Log(LogLevel.Error, ex.Message);
             }
         }
 
-        
         public void ImplementXMLSerialization()
         {
             XMLData data = new XMLData();
 
             try
-            { 
+            {
             data.Serialization(listOfCar);
             deserializedListByXML = data.Deserialization();
             }
@@ -69,7 +76,7 @@ namespace TaskOfSerializations
             JSONData data = new JSONData();
 
             try
-            { 
+            {
             data.Serialization(listOfCar);
             deserializedListByJSON = data.Deserialization();
             }
@@ -78,17 +85,5 @@ namespace TaskOfSerializations
                 logger.Log(LogLevel.Error, ex.Message);
             }
         }
-
-
-        public void Run()
-        {
-            WriteReadOfData.Write("========Serialization=======\n");
-            WriteReadOfData.Write("Serialized and Deserialized. Check related files");
-
-            ImplementBinarySerialization();
-            ImplementXMLSerialization();
-            ImplementJSONSerialization();
-        }
-
     }
 }

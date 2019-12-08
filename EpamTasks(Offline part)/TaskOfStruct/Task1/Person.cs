@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskOfStruct.Task1
 {
-    struct Person
+    struct Person : IPrint
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -19,7 +19,7 @@ namespace TaskOfStruct.Task1
             Age = age;
         }
 
-        public string PrintOurString(int n)
+        public string PrintString(int n)
         {
             return Age > n ? $"{Name} {Surname} older than {n}" : $"{Name} {Surname} younger than {n}";
         }

@@ -1,25 +1,20 @@
-﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
-using Logger;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 
 namespace TaskWithDirectories
 {
-    public class ActionWithFile
+    public class SearchFile
     {
-        private IWriteReadable WriteReadOfData;
+        private IWriteReadable writeReadOfData;
         private ILogging logger;
-        List<FileInfo> AllFilesinDirectories = new List<FileInfo>();
-        List<string> list = new List<string>();
+        private List<FileInfo> allFilesinDirectories = new List<FileInfo>();
 
-        public ActionWithFile(IWriteReadable writeReadOfData, ILogging logger)
+        public SearchFile(IWriteReadable writeReadOfData, ILogging logger)
         {
-            this.WriteReadOfData = writeReadOfData;
+            this.writeReadOfData = writeReadOfData;
             this.logger = logger;
         }
 
@@ -31,7 +26,7 @@ namespace TaskWithDirectories
             try
             {
                 files = root.GetFiles("*.*");
-                AllFilesinDirectories.AddRange(files);
+                allFilesinDirectories.AddRange(files);
             }
             catch (UnauthorizedAccessException e)
             {
@@ -41,8 +36,8 @@ namespace TaskWithDirectories
             {
                 logger.Log(LogLevel.Error, e.Message);
             }
-            
-            if (AllFilesinDirectories != null)
+
+            if (allFilesinDirectories != null)
             {
                 subDirs = root.GetDirectories();
 
@@ -52,53 +47,51 @@ namespace TaskWithDirectories
                 }
             }
             else
-                WriteReadOfData.Write("Directory is empty");
+            {
+                writeReadOfData.Write("Directory is empty");
+            }
 
-            return AllFilesinDirectories;
+            return allFilesinDirectories;
         }
 
         public void OutputFile(List<string> listOfFile)
         {
             foreach (string fi in listOfFile)
             {
-
-                WriteReadOfData.Write(fi);
-                //WriteReadOfData.Write(" ");
-
+                writeReadOfData.Write(fi);
             }
         }
 
         public List<string> GetIdenticalFiles(List<string> listOfFile)
         {
-            List<string> list = new List<string>();
+            List<string> listOfIdenticalFiles = new List<string>();
 
             HashSet<string> hash = new HashSet<string>();
             foreach (string file in listOfFile)
             {
                 if (!hash.Add(file))
                 {
-                    list.Add(file);
+                    listOfIdenticalFiles.Add(file);
                 }
             }
 
-            return list;
+            return listOfIdenticalFiles;
         }
 
         public List<string> GetDistinctFiles(List<string> listOfFile)
         {
-            List<string> list = new List<string>();
+            List<string> listOFDistinctFiles = new List<string>();
 
             HashSet<string> hash = new HashSet<string>();
             foreach (string file in listOfFile)
             {
                 if (hash.Add(file))
                 {
-                    list.Add(file);
+                    listOFDistinctFiles.Add(file);
                 }
             }
 
-            return list;
+            return listOFDistinctFiles;
         }
-
     }
 }

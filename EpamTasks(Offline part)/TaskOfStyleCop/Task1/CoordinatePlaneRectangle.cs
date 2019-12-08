@@ -7,9 +7,10 @@ using TaskOfStyleCop.Task2;
 
 namespace TaskOfStyleCop
 {
-    class CoordinatePlaneRectangle
+    public class CoordinatePlaneRectangle
     {
         private Rectangle FirstRectangle { get; set; }
+
         private Rectangle SecondRectangle { get; set; }
 
         public CoordinatePlaneRectangle(Rectangle firstRectangle, Rectangle secondRectangle)
@@ -83,7 +84,5 @@ namespace TaskOfStyleCop
 
             return new Rectangle(new Point(Math.Max(x1, x2), Math.Min(y1, y2)), new Point(Math.Min(x3, x4), Math.Max(y3, y4)));
         }
-
-        
     }
 }

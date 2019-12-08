@@ -9,21 +9,21 @@ namespace LibraryOfInterfacesAndClasses.AdditionalClasses
 {
     public class WriteReadData 
     {
-        public IWriteReadable TypeOfWriteRead { get; set; }
+        public IWriteReadable TypeOfWriteReadData { get; set; }
 
-        public WriteReadData(IWriteReadable typeOfWriteRead)
+        public WriteReadData(IWriteReadable typeOfWriteReadData)
         {
-            this.TypeOfWriteRead = typeOfWriteRead;
+            this.TypeOfWriteReadData = typeOfWriteReadData;
         }
 
-        public void Write(object data)
+        public void Write(object OutputData)
         {
-            TypeOfWriteRead.Write(data);
+            TypeOfWriteReadData.Write(OutputData);
         }
 
         public void Read()
         {
-            TypeOfWriteRead.Read();
+            TypeOfWriteReadData.Read();
         }
     }
 }

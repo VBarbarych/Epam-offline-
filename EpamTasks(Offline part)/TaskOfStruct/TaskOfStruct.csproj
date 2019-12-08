@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="MainClassOfStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task1\IPrint.cs" />
     <Compile Include="Task1\Person.cs" />
     <Compile Include="Task2\ICoordinates.cs" />
     <Compile Include="Task2\ISize.cs" />
@@ -56,6 +57,13 @@
       <Project>{57B13D1D-FE03-4BDF-BD0E-B441E1FF4CFB}</Project>
       <Name>Logger</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,9 +9,7 @@ namespace TaskOfEnum.Task2
 {
     public static class EnumExtensionMethod
     {
-        
-
-        public static List<int> EnumColorSort(this Color color)
+        public static List<int> SortEnum(this Color color)
         {
             List<int> ColorList = new List<int>();
 

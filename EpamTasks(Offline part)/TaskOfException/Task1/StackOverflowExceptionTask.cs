@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskOfException.Task1
 {
-    static class StackOverflowExceptionTask
+    public static class StackOverflowExceptionTask
     {
         public static int Factorial(int x)
         {

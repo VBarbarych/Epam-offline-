@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryOfInterfacesAndClasses.AdditionalClasses;
-using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
 using Logger;
 using TaskOfEnum.Task1;
 using TaskOfEnum.Task2;
@@ -14,56 +8,13 @@ namespace TaskOfEnum
 {
     public class MainClassOfEnum : IRunable
     {
-        private IWriteReadable WriteReadOfData;
-        ILogging logger;
+        private IWriteReadable writeReadOfData;
+        private ILogging logger;
 
         public MainClassOfEnum(IWriteReadable writeReadOfData, ILogging logger)
         {
-            this.WriteReadOfData = writeReadOfData;
+            this.writeReadOfData = writeReadOfData;
             this.logger = logger;
-        }
-
-        private void ImplementOfTask1()
-        {
-            WriteReadOfData.Write("\n==========Enum==========\n");
-            WriteReadOfData.Write("====Implement Task1=====\n");
-
-            //int month = 0;
-            //try
-            //{
-            //    WriteReadOfData.Write("Input your month(number): ");
-            //    month = Convert.ToInt32(WriteReadOfData.Read());
-            //    if (month < 0 || month > 12)
-            //        throw new Exception("Error");
-            //}
-            //catch (Exception e)
-            //{
-            //    logger.Log(LogLevel.Error, e.Message);
-            //}
-
-            WriteReadOfData.Write(Enum.GetName(typeof(Month), 6));
-        }
-
-        private void ImplementOfTask2()
-        {
-            WriteReadOfData.Write("\n====Implement Task2=====\n");
-
-            List<int> ColorList = new List<int>();
-
-            var color = Color.Green;
-            ColorList = color.EnumColorSort();
-
-            foreach(int i in ColorList)
-            {
-                WriteReadOfData.Write($"{Enum.GetName(typeof(Color), i)} = {i}");
-            }
-        }
-
-        private void ImplementOfTask3()
-        {
-            WriteReadOfData.Write("\n====Implement Task3=====\n");
-
-            WriteReadOfData.Write($"\n{(long)LongRange.Max} - max value \n{(long)LongRange.Min} - min value");
         }
 
         public void Run()
@@ -73,5 +24,30 @@ namespace TaskOfEnum
             ImplementOfTask3();
         }
 
+        private void ImplementOfTask1()
+        {
+            writeReadOfData.Write("\n==========Enum==========\n");
+            writeReadOfData.Write("====Implement Task1=====\n");
+
+            Month month = new Month(writeReadOfData, logger);
+            month.InputMonth();
+            month.OutputMonth();
+        }
+
+        private void ImplementOfTask2()
+        {
+            writeReadOfData.Write("\n====Implement Task2=====\n");
+
+            Colors colors = new Colors(writeReadOfData, logger);
+            colors.SortEnum();
+            colors.OutputColors();
+        }
+
+        private void ImplementOfTask3()
+        {
+            writeReadOfData.Write("\n====Implement Task3=====\n");
+
+            writeReadOfData.Write($"\n{(long)LongRange.Max} - max value \n{(long)LongRange.Min} - min value");
+        }
     }
 }

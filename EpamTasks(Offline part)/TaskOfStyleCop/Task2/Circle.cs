@@ -1,17 +1,11 @@
 ﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskOfStyleCop.Task2
 {
     public class Circle
     {
-
-
         public Point Center { get; set; }
+
         public double Radius { get; set; }
 
         public Circle()
@@ -26,9 +20,9 @@ namespace TaskOfStyleCop.Task2
             Radius = radius;
         }
 
-        public void OutputCircle(IWriteReadable WriteReadOfData)
+        public void OutputCircle(IWriteReadable writeReadOfData)
         {
-            WriteReadOfData.Write($"Center of the circle ({Center.X}, {Center.Y}), Radius: {Radius}");
+            writeReadOfData.Write($"Center of the circle ({Center.X}, {Center.Y}), Radius: {Radius}");
         }
     }
 }

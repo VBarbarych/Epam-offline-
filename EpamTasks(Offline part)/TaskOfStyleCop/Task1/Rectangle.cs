@@ -1,20 +1,17 @@
 ﻿using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskOfStyleCop
 {
     public class Rectangle
     {
         public Point UpperLeft { get; set; }
+
         public Point LowerRight { get; set; }
+
         private Point LowerLeft { get; set; }
+
         private Point UpperRight { get; set; }
 
-        
         public Rectangle()
         {
             UpperLeft = new Point(0, 0);
@@ -39,13 +36,10 @@ namespace TaskOfStyleCop
             set => UpperRight = value;
         }
 
-
-        public void OutputPoints(IWriteReadable WriteReadOfData)
+        public void OutputPoints(IWriteReadable writeReadOfData)
         {
-
-            WriteReadOfData.Write($"UpperLeft({UpperLeft.X}, {UpperLeft.Y}), UpperRight({UpperRightPoint.X}, {UpperRightPoint.Y})");
-            WriteReadOfData.Write($"LowerLeft({LowerLeftPoint.X}, {LowerLeftPoint.Y}), LowerRight({LowerRight.X}, {LowerRight.Y})");
+            writeReadOfData.Write($"UpperLeft({UpperLeft.X}, {UpperLeft.Y}), UpperRight({UpperRightPoint.X}, {UpperRightPoint.Y})");
+            writeReadOfData.Write($"LowerLeft({LowerLeftPoint.X}, {LowerLeftPoint.Y}), LowerRight({LowerRight.X}, {LowerRight.Y})");
         }
-
     }
 }

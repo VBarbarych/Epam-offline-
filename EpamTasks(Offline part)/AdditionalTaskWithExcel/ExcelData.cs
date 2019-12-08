@@ -13,11 +13,15 @@ namespace TaskWithExcel
         public HashSet<string> Read(string path, string column)
         {
             Application excelApp = new Application();
-            //excelApp.Visible = true; 
-            excelApp.Workbooks.Open(path, Type.Missing, true, Type.Missing, Type.Missing,
-                                          Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                                          Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                                          Type.Missing, Type.Missing);
+
+            // excelApp.Visible = true;
+            excelApp.Workbooks.Open(
+                path,
+                Type.Missing, true, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing);
+
             int row = 1;
             int numberOfBooks = 1;
             int numberOfSheet = 1;
@@ -27,10 +31,11 @@ namespace TaskWithExcel
             while (currentSheet.get_Range(column + row).Value2 != null)
             {
                 Range cell = currentSheet.get_Range(column + row);
-                tempList.Add(cell != null ? cell.Value2.ToString() : "");
+                tempList.Add(cell != null ? cell.Value2.ToString() : string.Empty);
 
                 row++;
             }
+
             excelApp.Quit();
 
             return tempList;
