@@ -6,7 +6,6 @@
 
 По замовчуванню, дані виводяться в консоль. Для того, щоб змінити вивід даних в файл в проекті AutoRunner 28-ий рядок змініть на IWriteReadable output = new FileData();
 
-App.cofig: -LoggerFile (шлях до файлу куди записуються Exceptions) -ExcelFilePath (Excel файл для додаткового завдання(Варіант 1)) -FirstColumn (перший стовпець для зчитування даних) -SecondColumn (другий стовпець для зчитування даних) -TaskWithDirectories (Шлях до директорії для дотаткового завдання(Варіант 2)) -OutputFile (Шлях до файлу куди виводяться дані) -InputFile (Шлях до файлу звідки зчитуються дані) -TaskOfIOStream1 (Шлях для завдання про IO Stream) -TaskOfIOStream2 (Шлях для завдання про IO Stream)
 =======
 
 >>>>>>> 922bcde3743f8f0db72e07f237a8bc01e4188ae6
