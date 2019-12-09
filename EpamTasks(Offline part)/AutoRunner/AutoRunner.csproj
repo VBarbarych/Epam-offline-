@@ -90,6 +90,10 @@
       <Project>{13bd849c-4849-40c4-a6c3-5e374c04a7a3}</Project>
       <Name>TaskOfStyleCop</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TaskOfThreading\TaskOfThreading.csproj">
+      <Project>{f7abdca0-fcb2-44de-8ba3-cbe82c3167ff}</Project>
+      <Name>TaskOfThreading</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskWithDirectories\TaskWithDirectories%28Variant2%29.csproj">
       <Project>{c30361b7-08ee-4e27-a812-d6d99689be3e}</Project>
       <Name>TaskWithDirectories%28Variant2%29</Name>

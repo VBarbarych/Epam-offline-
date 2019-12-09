@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRunner", "AutoRunner\AutoRunner.csproj", "{94F98EA5-BACE-40D2-A986-86A64216DFA3}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -29,6 +29,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithExcel(Variant1)", "AdditionalTaskWithExcel\TaskWithExcel(Variant1).csproj", "{EBB7B5C1-3B94-429E-8680-76C012748E12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithDirectories(Variant2)", "TaskWithDirectories\TaskWithDirectories(Variant2).csproj", "{C30361B7-08EE-4E27-A812-D6D99689BE3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfThreading", "TaskOfThreading\TaskOfThreading.csproj", "{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,10 @@ Global
 		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C30361B7-08EE-4E27-A812-D6D99689BE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
