@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="Program.cs" company="Volodymyr Barbarych">
+// Copyright (c) Volodymyr Barbarych. All rights reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
@@ -18,6 +22,9 @@ namespace AutoRunner
 {
     class Program
     {
+        /// <summary>
+        ///  Run all project.
+        /// </summary>
         static void Main(string[] args)
         {
             Stopwatch sw_total = new Stopwatch();
@@ -25,7 +32,22 @@ namespace AutoRunner
 
             List<IRunable> tasks = new List<IRunable>();
 
-            IWriteReadable output = new ConsoleData();
+            IWriteReadable output = null;
+            Console.WriteLine("Input 1 - output data in console, 2 - output data in file");
+            int checker = Convert.ToInt32(Console.ReadLine());
+            if (checker == 1)
+            {
+                output = new ConsoleData();
+            }
+            else if (checker == 2)
+            {
+                output = new FileData();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+
             ILogging logger = new FileLogger();
 
             tasks.Add(new MainClassOfStruct(output, logger));

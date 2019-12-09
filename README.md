@@ -1,10 +1,8 @@
 # Epam-offline-
 <<<<<<< HEAD
-Програма складається з домашніх завдань з презентацій + 2 додаткових завдання(1 та 2 варіант)
+The program consists of homework presentations + 2 additional tasks (variant 1 and 2)
 
-Структура програми: -Один солюшин та декілька проектів(один проект - одне домашнє завдання) -Програма має AutoRunner який запускає всі проекти -Програма має Logger для запису помилок в файл -Програма може виводити дані в файл/консоль, зчитувати з файлу/консолі(LibraryOfInterfacesAndClasses) -Всі шляхи записані в App.config
-
-По замовчуванню, дані виводяться в консоль. Для того, щоб змінити вивід даних в файл в проекті AutoRunner 28-ий рядок змініть на IWriteReadable output = new FileData();
+Program structure: -One solution and several projects (one project - one homework) -The program has AutoRunner which starts all projects -The program has a Logger for writing errors to a file -The program can output data to a file / console, read from a file / console ( LibraryOfInterfacesAndClasses) -All paths are written to App.config
 
 =======
 

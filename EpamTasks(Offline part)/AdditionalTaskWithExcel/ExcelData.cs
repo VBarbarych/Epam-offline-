@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryOfInterfacesAndClasses.AdditionalInterfaces;
+using Logger;
 using Microsoft.Office.Interop.Excel;
 
 namespace TaskWithExcel
 {
     public class ExcelData
     {
+        private IWriteReadable writeReadOfData;
+        private ILogging logger;
+
         public HashSet<string> Read(string path, string column)
         {
             Application excelApp = new Application();
