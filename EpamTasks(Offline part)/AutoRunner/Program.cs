@@ -51,16 +51,17 @@ namespace AutoRunner
 
             ILogging logger = new FileLogger();
 
-            //tasks.Add(new MainClassOfStruct(output, logger));
-            //tasks.Add(new MainClassOfEnum(output, logger));
-            //tasks.Add(new MainClassOfIOStream(output, logger));
-            //tasks.Add(new MainClassOfException(output, logger));
-            //tasks.Add(new MainClassOfSerializations(output, logger));
-            //tasks.Add(new MainClassOfReflection(output));
-            //tasks.Add(new MainClassOfStyleCop(output));
-            //tasks.Add(new MainClassOfExcel(output, logger));
-            //tasks.Add(new MainClassOfDirectories(output, logger));
+            tasks.Add(new MainClassOfStruct(output, logger));
+            tasks.Add(new MainClassOfEnum(output, logger));
+            tasks.Add(new MainClassOfIOStream(output, logger));
+            tasks.Add(new MainClassOfException(output, logger));
+            tasks.Add(new MainClassOfSerializations(output, logger));
+            tasks.Add(new MainClassOfReflection(output));
+            tasks.Add(new MainClassOfStyleCop(output));
             tasks.Add(new MainClassOfThreading(output));
+            tasks.Add(new MainClassOfExcel(output, logger));
+            tasks.Add(new MainClassOfDirectories(output, logger));
+            
 
             foreach (var task in tasks)
             {

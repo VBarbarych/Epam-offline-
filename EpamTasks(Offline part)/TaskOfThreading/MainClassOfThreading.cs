@@ -18,6 +18,7 @@ namespace TaskOfThreading
 
         public void Run()
         {
+            writeReadOfData.Write("/n =============TaskOfThreading==============/n");
             ImplementTask();
         }
 
