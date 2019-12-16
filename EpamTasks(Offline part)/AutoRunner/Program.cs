@@ -18,6 +18,7 @@ using LibraryOfInterfacesAndClasses.AdditionalClasses;
 using TaskOfStyleCop;
 using TaskWithDirectories;
 using TaskOfThreading;
+using IoCContainer;
 
 namespace AutoRunner
 {
@@ -59,9 +60,9 @@ namespace AutoRunner
             tasks.Add(new MainClassOfReflection(output));
             tasks.Add(new MainClassOfStyleCop(output));
             tasks.Add(new MainClassOfThreading(output));
+            tasks.Add(new MainClassOfIoCContainer(output, logger));
             tasks.Add(new MainClassOfExcel(output, logger));
             tasks.Add(new MainClassOfDirectories(output, logger));
-            
 
             foreach (var task in tasks)
             {

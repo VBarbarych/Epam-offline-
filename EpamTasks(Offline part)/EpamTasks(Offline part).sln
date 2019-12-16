@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithDirectories(Variant
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOfThreading", "TaskOfThreading\TaskOfThreading.csproj", "{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCContainer", "IoCContainer\IoCContainer.csproj", "{948821B2-E006-495E-A3B5-F31C019D9B23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7ABDCA0-FCB2-44DE-8BA3-CBE82C3167FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948821B2-E006-495E-A3B5-F31C019D9B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948821B2-E006-495E-A3B5-F31C019D9B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948821B2-E006-495E-A3B5-F31C019D9B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948821B2-E006-495E-A3B5-F31C019D9B23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

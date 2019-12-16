@@ -54,6 +54,10 @@
       <Project>{ebb7b5c1-3b94-429e-8680-76c012748e12}</Project>
       <Name>TaskWithExcel%28Variant1%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IoCContainer\IoCContainer.csproj">
+      <Project>{948821b2-e006-495e-a3b5-f31c019d9b23}</Project>
+      <Name>IoCContainer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryOfInterfacesAndClasses\LibraryOfInterfacesAndClasses.csproj">
       <Project>{F508B965-37BC-40DF-9B1A-092E6606EAB3}</Project>
       <Name>LibraryOfInterfacesAndClasses</Name>
